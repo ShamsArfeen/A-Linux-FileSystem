@@ -1,10 +1,15 @@
 # A-Linux-FileSystem
 
-The program creates a snapshot of filesystem in a file "myfs" and invokes a prompt which supports 7 basic filesystem commands (see bellow). The layout of the filesystem is stored according to the following scheme:
+The program creates a snapshot of filesystem in a file "myfs" and supports 7 basic filesystem commands (see bellow). The layout of the filesystem is stored according to the following scheme:
 
 ## Filesystem Layout:
 
 The 128 blocks are divided into 1 super block and 127 data blocks. The superblock contains the 128 byte free block list where each byte contains a boolean value indicating whether that particular block is free or not. Just after the free block list, in the super block, we have the inode table containing the 16 inodes themselves. Each inode is 56 bytes in size and contains metadata about the stored files/directories as indicated by the data structure "inode".
+
+## How to Run:
+Simply compile using gcc and run the executable. The executable will take a filename as a cmd argument which will contain commands to execute.
+``gcc main.c -o vfs.out``
+``./vfs.out [CMDFILE.txt]``
 
 # Supported Commands:
 

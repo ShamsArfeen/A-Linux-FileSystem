@@ -1,5 +1,15 @@
 # A-Linux-FileSystem
 
+The program creates a snapshot of filesystem in a file "myfs" and invokes a prompt which supports 7 basic filesystem commands (see bellow). The layout of the filesystem is stored according to the following scheme:
+
+## Filesystem Layout:
+
+The 128 blocks are divided into 1 super block and 127 data blocks. The superblock contains the 128 byte free block list where each byte contains a boolean value indicating whether that particular block is free or not. Just after the free block list, in the super block, we have the inode table containing the 16 inodes themselves. Each inode is 56 bytes in size and contains metadata about the stored files/directories as indicated by the data structure "inode".
+
+# Supported Commands:
+
+The invoked prompt supports the following commands:
+
 ## Create a file: CR [filename] [size]
 
 This command should create a file titled filename of the given size. The filename will bean absolute path. If there’s not enough space in the disk, it outputs an error saying ”not enough space”, otherwise it creates a file of the required size.
